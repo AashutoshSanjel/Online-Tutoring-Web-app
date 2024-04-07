@@ -29,7 +29,7 @@ const PopularCompanies = () => {
   return (
     <div className="companies">
       <div className="container">
-        <h3>TOP UNIVERSITIES</h3>
+        <h3>TOP UNIVERSITIES Shown</h3>
         <div className="banner">
           {companies.map((element) => {
             return (
