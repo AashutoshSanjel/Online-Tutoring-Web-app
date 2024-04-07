@@ -5,8 +5,10 @@ import { Context } from "../../main";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const { isAuthorized } = useContext(Context);
   const navigateTo = useNavigate();
+
   useEffect(() => {
     try {
       axios
@@ -14,32 +16,51 @@ const Jobs = () => {
           withCredentials: true,
         })
         .then((res) => {
-          setJobs(res.data);
+          if (Array.isArray(res.data.jobs)) {
+            setJobs(res.data.jobs);
+          } else {
+            console.error("API response does not contain a jobs array:", res.data);
+          }
         });
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching jobs:", error);
     }
   }, []);
-  if (!isAuthorized) {
-    navigateTo("/");
-  }
+
+  useEffect(() => {
+    if (!isAuthorized) {
+      navigateTo("/");
+    }
+  }, [isAuthorized, navigateTo]);
+
+  const filteredJobs = Array.isArray(jobs)
+    ? jobs.filter((job) =>
+        job.category.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
 
   return (
     <section className="jobs page">
       <div className="container">
         <h1>ALL AVAILABLE SUBJECTS</h1>
+        {/* Search bar */}
+        <input
+          type="text"
+          placeholder="Search subjects..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
         <div className="banner">
-          {jobs.jobs &&
-            jobs.jobs.map((element) => {
-              return (
-                <div className="card" key={element._id}>
-                  <p>{element.title}</p>
-                  <p>{element.category}</p>
-                  <p>{element.country}</p>
-                  <Link to={`/job/${element._id}`}>Subject Details</Link>
-                </div>
-              );
-            })}
+          {filteredJobs.map((element) => {
+            return (
+              <div className="card" key={element._id}>
+                <p>{element.title}</p>
+                <p>{element.category}</p>
+                <p>{element.country}</p>
+                <Link to={`/job/${element._id}`}>Subject Details</Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
