@@ -17,6 +17,7 @@ import NotFound from "./components/NotFound/NotFound";
 import axios from "axios";
 import {Toaster} from "react-hot-toast";
 import ForgotPassword from './components/Auth/ForgotPassword';
+import Admin from "./components/Admin/Admin";
 const App = () => {
   const {isAuthorized, setIsAuthorized, setUser} = useContext(Context);
   useEffect(()=>{
@@ -42,6 +43,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/admin" element={<Admin />} />
         <Route path="/" element={<Home/>}/>
         <Route path="/job/getall" element={<Jobs/>}/>
         <Route path="/job/:id" element={<JobDetails/>}/>

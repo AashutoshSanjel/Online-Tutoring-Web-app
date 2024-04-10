@@ -55,6 +55,18 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
       message: "Logged Out Successfully.",
     });
 });
+export const deleteUser = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.findByIdAndDelete(req.params.userId);
+
+  if (!user) {
+    return next(new ErrorHandler("User not found", 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "User deleted successfully",
+  });
+});
 export const getAllUsers = catchAsyncErrors(async (req, res, next) => {
   const users = await User.find({});
   res.status(200).json({
