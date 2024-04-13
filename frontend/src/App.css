@@ -616,7 +616,7 @@ p {
   padding: 30px 0;
 }
 .jobs .container .banner .card {
-  background: lightsteelblue;
+  background: lightgrey;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
   width: 320px;
@@ -647,15 +647,9 @@ p {
 .jobs .container .banner .card a {
   text-decoration: none;
   color: #fff; /* Change link color to white */
-  background-color: #007bff; /* Change link background color */
+  background-color: lightgreen; /* Change link background color */
   padding: 8px 16px;
-  border-radius: 5px;
-  text-align: center;
-  transition: background-color 0.3s ease; /* Add smooth transition on hover */
-}
-
-.jobs .container .banner .card a:hover {
-  background-color: #0056b3; /* Darken the background color on hover */
+  background-color: lightcyan; /* Darken the background color on hover */
 }
 .jobs .container .banner .card:hover {
   transition: all 0.3s;
@@ -1401,7 +1395,7 @@ input[type="text"] {
   border-radius: 25px;
   box-sizing: border-box;
   font-size: 16px;
-  background-color: lightsteelblue; /* Blue background color */
+  background-color: lightgrey; /* Blue background color */
   color: darkgoldenrod; /* White text color */
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -1506,6 +1500,16 @@ input[type="text"]::-webkit-search-results-decoration {
 .deleteButton:hover {
   background-color: #cc0000; /* Darker red on hover */
 }
+
+.adminDashboard {
+  font-size: 20px; /* Adjust the size as needed */
+  font-weight: bold; /* Makes the text bold */
+  color: #ffffff; /* White color for the text, adjust based on your navbar's background */
+  padding: 10px 0; /* Adds some padding above and below the text */
+  text-align: center; /* Centers the text */
+  width: 100%; /* Ensures the text container takes the full width */
+}
+
 
 
 

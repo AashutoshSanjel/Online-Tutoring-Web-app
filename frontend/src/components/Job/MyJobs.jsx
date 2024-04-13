@@ -131,7 +131,7 @@ const MyJobs = () => {
                           />
                         </div>
                         <div>
-                          <span>City:</span>
+                          <span>Subject Name:</span>
                           <input
                             type="text"
                             disabled={
@@ -286,7 +286,7 @@ const MyJobs = () => {
                           />
                         </div>
                         <div>
-                          <span>Subject Name: </span>
+                          <span>Location: </span>
                           <textarea
                             value={element.location}
                             rows={5}

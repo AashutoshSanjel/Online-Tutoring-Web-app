@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
-import { Context } from '../../main'
+import React, { useContext, useState } from 'react';
+import { Context } from '../../main';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { GiHamburgerMenu } from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -25,9 +25,16 @@ const Navbar = () => {
   return (
     <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
       <div className="container">
-        <div className="logo">
-          <img src="/logohamro.png" alt="logo" />
-        </div>
+        {/* Conditional rendering based on user role */}
+        {user && user.role === "Admin" ? (
+          <div className="adminDashboard">
+            ADMIN DASHBOARD
+          </div>
+        ) : (
+          <div className="logo">
+            <img src="/logohamro.png" alt="logo" />
+          </div>
+        )}
         <ul className={!show ? "menu" : "show-menu menu"}>
           {user && user.role !== "Admin" && (
             <>
@@ -69,7 +76,6 @@ const Navbar = () => {
               )}
             </>
           )}
-          {/* Logout button displayed for all roles but outside the conditional rendering block for admin role */}
           <li>
             <button onClick={handleLogout}>LOGOUT</button>
           </li>
