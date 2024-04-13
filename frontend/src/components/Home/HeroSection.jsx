@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBuilding, FaSuitcase, FaUsers, FaUserPlus } from "react-icons/fa";
 
+
 const HeroSection = () => {
   const details = [
     {
@@ -28,6 +29,11 @@ const HeroSection = () => {
       icon: <FaUserPlus />,
     },
   ];
+
+  const handleLoginClick = () => {
+    window.location.href = "http://localhost:3000";
+  };
+
   return (
     <>
       <div className="heroSection">
@@ -36,8 +42,14 @@ const HeroSection = () => {
             <h1>Find a Subject that</h1>
             <h1>you want to study</h1>
             <p>
-            "At our online tutoring platform, we believe in the power of education to transform lives. Our mission is to provide a dynamic and accessible learning environment where students can thrive, regardless of their location or background.
+              "At our online tutoring platform, we believe in the power of education to transform lives. Our mission is to provide a dynamic and accessible learning environment where students can thrive, regardless of their location or background."
             </p>
+            <p>
+              "We Have our Hamro Shiksya Meet. Login to Hamro Shiksya."
+            </p>
+            <button onClick={handleLoginClick} className="loginButton">
+              Login To Hamro Shiksya Meet
+            </button>
           </div>
           <div className="image">
             <img src="/tut.jpg" alt="hero" />

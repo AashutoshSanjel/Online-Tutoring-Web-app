@@ -1509,6 +1509,40 @@ input[type="text"]::-webkit-search-results-decoration {
   text-align: center; /* Centers the text */
   width: 100%; /* Ensures the text container takes the full width */
 }
+/* .loginButton {
+  background-color: green;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: darkgreen;
+} */
+
+.loginButton {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  width: 50%;              /* Set the width to 50% of its parent */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  display: block;          /* Makes the button a block element */
+  margin: 20px auto;       /* Adds margin to top/bottom and auto margin to left/right for centering */
+}
+
+.loginButton:hover {
+  background-color: #d9534f;
+}
 
 
 

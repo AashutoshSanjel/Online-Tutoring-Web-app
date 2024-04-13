@@ -3,7 +3,9 @@ import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../main";
+
 const Application = () => {
+  // State hooks to manage form data
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
@@ -11,17 +13,20 @@ const Application = () => {
   const [address, setAddress] = useState("");
   const [resume, setResume] = useState(null);
 
+  // Context for user authorization and navigation
   const { isAuthorized, user } = useContext(Context);
-
   const navigateTo = useNavigate();
 
-  // Function to handle file input changes
+  // Function to handle changes in file input (resume)
   const handleFileChange = (event) => {
     const resume = event.target.files[0];
     setResume(resume);
   };
 
+  // Extract job ID from the route parameters
   const { id } = useParams();
+
+  // Function to handle form submission
   const handleApplication = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -44,12 +49,13 @@ const Application = () => {
           },
         }
       );
+      // Resetting form after successful post
       setName("");
       setEmail("");
       setCoverLetter("");
       setPhone("");
       setAddress("");
-      setResume("");
+      setResume(null);
       toast.success(data.message);
       navigateTo("/job/getall");
     } catch (error) {
@@ -57,6 +63,12 @@ const Application = () => {
     }
   };
 
+  // Function to handle the creation of a meeting
+  const handleCreateMeeting = () => {
+    window.location.href = "http://localhost:3000";
+  };
+
+  // Redirect if user is unauthorized or has a specific role
   if (!isAuthorized || (user && user.role === "Teacher")) {
     navigateTo("/");
   }
@@ -109,6 +121,10 @@ const Application = () => {
             />
           </div>
           <button type="submit">Notify Tutors</button>
+          <button type="button" style={{ display: "block", marginTop: "20px" }} onClick={handleCreateMeeting}>
+            Create Meeting
+          </button>
+          <p>Before Applying, create a meeting and send it to the tutor.</p>
         </form>
       </div>
     </section>
