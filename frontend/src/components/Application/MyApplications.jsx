@@ -4,6 +4,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ResumeModal from "./ResumeModal";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
+
 
 const MyApplications = () => {
   const { user } = useContext(Context);
@@ -69,8 +73,7 @@ const MyApplications = () => {
   };
 
   const claimSession = (id) => {
-    // Here you can open the link when the "Claim Session" button is clicked
-    window.open("http://localhost:3000/", "_blank");
+    window.location.href = "http://localhost:3000/"; // Change made here
   };
 
   return (
@@ -80,8 +83,7 @@ const MyApplications = () => {
           <h1>My Requests</h1>
           {applications.length <= 0 ? (
             <>
-              {" "}
-              <h4>No Applications Found</h4>{" "}
+              <h4>No Applications Found</h4>
             </>
           ) : (
             applications.map((element) => {
@@ -132,7 +134,14 @@ const JobSeekerCard = ({ element, deleteApplication, openModal }) => {
       <div className="job_seeker_card">
         <div className="detail">
           <p>
-            <span>Name:</span> {element.name}
+            {/* <span>MeetingLink:</span> {element.name} */}
+            <span>MeetingLink:</span> {element.name}
+            <CopyToClipboard text={element.name}>
+              <button className="copy-button">
+                <FontAwesomeIcon icon={faCopy} title="Copy to clipboard" />
+              </button>
+            </CopyToClipboard>
+
           </p>
           <p>
             <span>Email:</span> {element.email}
@@ -170,7 +179,12 @@ const EmployerCard = ({ element, openModal, claimSession }) => {
       <div className="job_seeker_card">
         <div className="detail">
           <p>
-            <span>Name:</span> {element.name}
+          <span>MeetingLink:</span> {element.name}
+            <CopyToClipboard text={element.name}>
+              <button className="copy-button">
+                <FontAwesomeIcon icon={faCopy} title="Copy to clipboard" />
+              </button>
+            </CopyToClipboard>
           </p>
           <p>
             <span>Email:</span> {element.email}

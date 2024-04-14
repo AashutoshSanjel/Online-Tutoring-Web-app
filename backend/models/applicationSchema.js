@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 import validator from "validator";
 
 const applicationSchema = new mongoose.Schema({
-  name: {
+  applicationLink: {
     type: String,
     required: [true, "Please enter your Name!"],
     minLength: [3, "Name must contain at least 3 Characters!"],
-    maxLength: [30, "Name cannot exceed 30 Characters!"],
+    maxLength: [255, "Name cannot exceed 30 Characters!"],
   },
   email: {
     type: String,

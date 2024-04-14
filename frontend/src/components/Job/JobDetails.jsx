@@ -75,9 +75,11 @@ const JobDetails = () => {
             <>
               <Link to={`/application/${job._id}`}>Apply Now</Link>
               {/* <button onClick={handleFindTutorClick}>Find Tutor</button> */}
+              
             </>
           )}
         </div>
+        
       </div>
     </section>
   );

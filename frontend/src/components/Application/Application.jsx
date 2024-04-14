@@ -65,7 +65,7 @@ const Application = () => {
 
   // Function to handle the creation of a meeting
   const handleCreateMeeting = () => {
-    window.location.href = "http://localhost:3000";
+    window.open("http://localhost:3000", "_blank");
   };
 
   // Redirect if user is unauthorized or has a specific role
@@ -77,10 +77,14 @@ const Application = () => {
     <section className="application">
       <div className="container">
         <h3>Application Form</h3>
+        <button type="button" className="createMeetingButton" onClick={handleCreateMeeting}>
+          Create Meeting
+        </button>
+        <p className="meetingInfo">Before Applying, create a meeting and send it to the tutor.</p>
         <form onSubmit={handleApplication}>
           <input
             type="text"
-            placeholder="Your Name"
+            placeholder="Provide Meeting Link"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -121,10 +125,7 @@ const Application = () => {
             />
           </div>
           <button type="submit">Notify Tutors</button>
-          <button type="button" style={{ display: "block", marginTop: "20px" }} onClick={handleCreateMeeting}>
-            Create Meeting
-          </button>
-          <p>Before Applying, create a meeting and send it to the tutor.</p>
+  
         </form>
       </div>
     </section>
