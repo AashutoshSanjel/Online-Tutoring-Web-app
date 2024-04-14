@@ -1585,7 +1585,7 @@ input[type="text"]::-webkit-search-results-decoration {
 
 .buttonContainer {
   display: flex;
-  justify-content: space-between; /* or use 'flex-start' for no space in between */
+  justify-content: space-between; 
 }
 
 .userBox {
