@@ -7,6 +7,7 @@ const Admin = () => {
   const [jobs, setJobs] = useState([]);
   const [showUsers, setShowUsers] = useState(false);
   const [showJobs, setShowJobs] = useState(false);
+  const [showHamroShikshyaMeetUsers, setShowHamroShikshyaMeetUsers] = useState(false);
 
   useEffect(() => {
     fetchUsers();
@@ -47,8 +48,11 @@ const Admin = () => {
         <div className="userBox" onClick={() => setShowUsers(!showUsers)}>
           View Users
         </div>
+        <div className="userBox" onClick={() => window.location.href = 'https://dashboard.clerk.com/apps/app_2eoIzsrBqpx6KDYJOeUgbaD4AnX/instances/ins_2eoIzsWK6EqeQO7JNlKXTlqNY5a/users'}>
+          View All User Hamro Shikshya Meet
+        </div>
         <div className="userBox" onClick={() => { setShowJobs(!showJobs); fetchJobs(); }}>
-          View Jobs
+          View Subjects
         </div>
       </div>
       {showUsers && (
@@ -69,7 +73,7 @@ const Admin = () => {
       {showJobs && (
         <div>
           <div className="totalJobs">
-            Total Jobs: {jobs.length}
+            Total Subjects: {jobs.length}
           </div>
           <div className="jobList">
             {jobs.map(job => (

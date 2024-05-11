@@ -1604,6 +1604,25 @@ input[type="text"]::-webkit-search-results-decoration {
   background-color: #e0e0e0;
 }
 
+/* Jobs.css */
+.search-input {
+  width: 92%; /* Full width of the container */
+  padding: 12px 20px; /* Comfortable padding for typing */
+  margin: 8px 0; /* Margin for spacing around the input */
+  box-sizing: border-box; /* Includes padding and border in the width */
+  border: 2px solid #ccc; /* Subtle grey border */
+  border-radius: 4px; /* Rounded corners for a modern look */
+  font-size: 16px; /* Sufficient size for readability */
+  background-color: #fff; /* White background for the input */
+  color: #333; /* Dark color for text for better visibility */
+}
+
+.search-input:focus {
+  border-color: #4A90E2; /* Highlight with a blue border on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+
 
 
 

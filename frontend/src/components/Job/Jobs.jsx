@@ -45,11 +45,13 @@ const Jobs = () => {
         <h1>ALL AVAILABLE SUBJECTS</h1>
         {/* Search bar */}
         <input
-          type="text"
-          placeholder="Search subjects..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        type="text"
+         className="search-input" // Assign the new class name
+         placeholder="Search subjects..."
+         value={searchQuery}
+         onChange={(e) => setSearchQuery(e.target.value)}
+         />
+
         <div className="banner">
           {filteredJobs.map((element) => {
             return (

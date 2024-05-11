@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import validator from "validator";
 
 const applicationSchema = new mongoose.Schema({
-  applicationLink: {
+  name: {
     type: String,
     required: [true, "Please enter your Name!"],
     minLength: [3, "Name must contain at least 3 Characters!"],
